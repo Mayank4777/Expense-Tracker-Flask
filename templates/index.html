@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expense-Tracker</title>
+    <link rel="stylesheet" href="{{url_for('static' , filename='style.css')}}" </head>
+
+<body>
+    <div class="container">
+        <h1>Income & Expense</h1>
+        <form action="/submit" method="post">
+            <label for="desc">Description:</label>
+            <input type="text" name="desc" placeholder="Enter description">
+
+            <div class="radio-group">
+                <label><input type="radio" name="inc_exp" value="income" required>Income</label>
+                <label><input type="radio" name="inc_exp" value="expense">Expense</label>
+            </div>
+
+            <label for="amount">Amount:</label>
+            <input type="text" name="amount" placeholder="Enter amount" required>
+
+            <input type="submit" value="Submit">
+        </form>
+
+    </div>
+    <table border="1">
+        <tr>
+            <th>Sno</th>
+            <th>Description</th>
+            <th>Income|Expense</th>
+            <th>Amount</th>
+            <th>Action</th>
+        </tr>
+        {% for record in records %}
+        <tr>
+            {% if record.inc_exp == 'expense' %}
+            <td style="color: red;">{{loop.index}}</td>
+            <td style="color: red;">{{record.desc}}</td>
+            <td style="color: red;">{{record.inc_exp}}</td>
+            <td style="color: red;">-{{record.amount}}</td>
+            {% else %}
+            <td style="color: green;">{{loop.index}}</td>
+            <td style="color: green;">{{record.desc}}</td>
+            <td style="color: green;">{{record.inc_exp}}</td>
+            <td style="color: green;">+{{record.amount}}</td>
+            {%endif%}
+            <td>
+                <a href="/edit/{{ record.id }}" class="btn edit-btn">Edit</a>
+                <a href="/delete/{{ record.id }}" class="btn delete-btn">Remove</a>
+            </td>
+
+
+        </tr>
+        {% endfor %}
+        <tr>
+            <td colspan="4"><strong>Total</strong></td>
+            {% if total < 0 %} <td style="color:red; font-weight: bold;">{{total}}</td>
+                {% else %}
+                <td style="color:green; font-weight: bold;">+{{total}}</td>
+                {% endif %}
+        </tr>
+    </table>
+
+</body>
+
+</html>
