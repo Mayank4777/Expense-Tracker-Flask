@@ -1,0 +1,127 @@
+body {
+    font-family: Poppins, sans-serif;
+    background-color: #f5f6fa;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.form-container {
+    background: #fff;
+    padding: 25px 30px;
+    border-radius: 12px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    width: 350px;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+label {
+    display: block;
+    margin-top: 10px;
+    color: #555;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    margin-top: 20px;
+    background: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+button:hover {
+    background: #333;
+}
+
+a {
+    text-decoration: none;
+    color: #4CAF50;
+}
+
+a:hover {
+    color: #333;
+}
+
+.flash {
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+.flash.error {
+    background-color: #ffdddd;
+    color: #a33;
+}
+.flash.info {
+    background-color: #cfdced;
+    color: rgb(0, 0, 0);
+}
+.flash.success {
+    background-color: #ddffdd;
+    color: #070;
+}
+
+/* ===== Responsive for Phones (Small Screens) ===== */
+@media (max-width: 480px) {
+    body {
+        height: auto;
+        padding: 20px 10px;
+        flex-direction: column;
+        justify-content: flex-start;
+    }
+
+    .form-container {
+        width: 100%;
+        max-width: 320px;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 6px rgba(0,0,0,0.1);
+    }
+
+    h2 {
+        font-size: 20px;
+        margin-bottom: 15px;
+    }
+
+    label {
+        font-size: 14px;
+    }
+
+    input {
+        padding: 8px;
+        font-size: 14px;
+    }
+
+    button {
+        padding: 10px;
+        font-size: 15px;
+    }
+
+    a {
+        font-size: 14px;
+        display: inline-block;
+        margin-top: 10px;
+    }
+
+    .flash {
+        font-size: 14px;
+        padding: 8px;
+    }
+}
