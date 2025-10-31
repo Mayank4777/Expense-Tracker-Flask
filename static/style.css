@@ -172,3 +172,63 @@ td .btn {
         width: 95%;
     }
 }
+
+
+/* ===== Responsive for Phones (Small Screens) ===== */
+@media (max-width: 480px) {
+    body {
+        padding: 20px 10px;
+    }
+
+    .container {
+        width: 100%;
+        padding: 20px;
+        margin-bottom: 25px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+        font-size: 20px;
+    }
+
+    input[type="text"] {
+        padding: 8px;
+        font-size: 14px;
+    }
+
+    input[type="submit"] {
+        padding: 10px;
+        font-size: 15px;
+    }
+
+    .radio-group label {
+        font-size: 14px;
+    }
+
+    table {
+        width: 100%;
+        font-size: 13px;
+    }
+
+    th, td {
+        padding: 8px;
+    }
+
+    .btn {
+        padding: 5px 10px;
+        font-size: 13px;
+    }
+
+    .logout-container {
+        position: static;
+        margin-bottom: 15px;
+        text-align: center;
+    }
+
+    .logout-btn {
+        display: inline-block;
+        width: 100%;
+        text-align: center;
+        padding: 10px;
+    }
+}
