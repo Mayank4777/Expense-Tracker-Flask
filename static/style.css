@@ -147,6 +147,25 @@ td .btn {
   margin-right: 6px;
 }
 
+.logout-container {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+
+.logout-btn {
+    background-color: #e53935;
+    color: white;
+    padding: 8px 15px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.logout-btn:hover {
+    background-color: #b71c1c;
+}
+
 /* ===== Responsive ===== */
 @media (max-width: 600px) {
     .container, table {

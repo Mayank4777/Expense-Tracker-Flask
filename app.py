@@ -28,7 +28,8 @@ with app.app_context():
         db.create_all()
 
 def calculate_total():
-    all_records=Records.query.all()
+    # session['user_id']=Users.id
+    all_records=Records.query.filter_by(user_id=session['user_id']).all()
     total=0
     for r in all_records:
         if r.inc_exp=="expense":
@@ -47,9 +48,10 @@ def registersubmit():
     u_name=request.form['username']
     password=request.form['password']
 
-    userexist=Users.query.filter_by(u_name=u_name).first()
+    userexist=Users.query.filter_by(u_name=u_name).all()
     
     if userexist:
+        flash("User already exists. Please Login.", "error")
         return redirect(url_for("login"))
     else:
         user=Users(u_name=u_name,u_password=password)
@@ -71,6 +73,7 @@ def logincheck():
     # existpass=Users.query.filter_by(password=password)
 
     if not user:
+        flash("User not found Please try again.", "error")
         return redirect(url_for("register"))
 
     if password==user.u_password:
@@ -82,7 +85,11 @@ def logincheck():
 
 @app.route("/index")
 def index():
-    all_records=Records.query.all()
+    if 'user_id' not in session:
+        flash("Please log in first.", "error")
+        return redirect(url_for("login"))
+
+    all_records=Records.query.filter_by(user_id=session['user_id']).all()
     total=calculate_total()
     return render_template('index.html',records=all_records,total=total)
 
@@ -122,6 +129,11 @@ def updatepage(id):
     db.session.commit()
 
     return redirect(url_for("index"))
+
+@app.route("/logout")
+def logout():
+    flash("You have been logged out successfully.", "info")
+    return redirect(url_for("login"))
 
 if __name__=="__main__":
     app.run(debug=True)

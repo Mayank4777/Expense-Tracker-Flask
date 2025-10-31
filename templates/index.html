@@ -8,6 +8,10 @@
     <link rel="stylesheet" href="{{url_for('static' , filename='style.css')}}" </head>
 
 <body>
+    <div class="logout-container">
+        <a href="/logout" class="btn logout-btn">Logout</a>
+    </div>
+
     <div class="container">
         <h1>Income & Expense</h1>
         <form action="/submit" method="post">
@@ -63,7 +67,6 @@
                 {% endif %}
         </tr>
     </table>
-
 </body>
 
 </html>

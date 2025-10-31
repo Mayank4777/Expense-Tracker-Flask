@@ -69,6 +69,10 @@ a:hover {
     background-color: #ffdddd;
     color: #a33;
 }
+.flash.info {
+    background-color: #cfdced;
+    color: rgb(0, 0, 0);
+}
 .flash.success {
     background-color: #ddffdd;
     color: #070;
