@@ -77,3 +77,51 @@ a:hover {
     background-color: #ddffdd;
     color: #070;
 }
+
+/* ===== Responsive for Phones (Small Screens) ===== */
+@media (max-width: 480px) {
+    body {
+        height: auto;
+        padding: 20px 10px;
+        flex-direction: column;
+        justify-content: flex-start;
+    }
+
+    .form-container {
+        width: 100%;
+        max-width: 320px;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 6px rgba(0,0,0,0.1);
+    }
+
+    h2 {
+        font-size: 20px;
+        margin-bottom: 15px;
+    }
+
+    label {
+        font-size: 14px;
+    }
+
+    input {
+        padding: 8px;
+        font-size: 14px;
+    }
+
+    button {
+        padding: 10px;
+        font-size: 15px;
+    }
+
+    a {
+        font-size: 14px;
+        display: inline-block;
+        margin-top: 10px;
+    }
+
+    .flash {
+        font-size: 14px;
+        padding: 8px;
+    }
+}
